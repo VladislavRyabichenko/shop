@@ -7,3 +7,12 @@
 
   background: violet;
 }
+
+.cartWrapper {
+  display: flex;
+  width: 55%;
+  background: #5ece7b;
+  align-items: center;
+  justify-self: center;
+  justify-content: flex-end;
+}

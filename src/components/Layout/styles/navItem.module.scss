@@ -27,6 +27,10 @@
 
 .inActive {
   color: #1d1f22;
+
+  &:hover {
+    color: #5ece7b;
+  }
 }
 .active {
   color: #5ece7b;
