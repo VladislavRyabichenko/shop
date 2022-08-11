@@ -11,7 +11,7 @@ class SizesBlock extends React.Component<SizesProps, any> {
     const { sizes } = this.props;
     return (
       <div className={styles.sizes}>
-        <Title text="Size" isBold={true} />
+        <Title text="Size" isBold={false} />
         <div className={styles.sizesContainer}>
           {sizes.map((size) => {
             return (

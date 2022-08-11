@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./styles/cartItem.module.scss";
-import Title from "./ui/title";
 import InfoBlock from "./ui/infoBlock";
 import CartImage from "./cartImage/cartImage";
-type cartItemProps = {
+
+type CartItemType = {
   name: string;
   category: string;
   images: Array<string>;
@@ -12,26 +12,31 @@ type cartItemProps = {
   currency: string;
   colors: Array<string>;
 };
+type cartItemProps = {
+  item: CartItemType;
+  counter: number;
+};
 
 class CartItem extends React.Component<cartItemProps, {}> {
   render() {
-    const { name, category, images, sizes, price, currency, colors } =
-      this.props;
+    const { item, counter } = this.props;
+    console.log("items", item);
+
     return (
       <div className={styles.cartItemContainer}>
         <div className={styles.infoBlockWrapper}>
           <InfoBlock
-            name={name}
-            category={category}
-            images={images}
-            sizes={sizes}
-            price={price}
-            currency={currency}
-            colors={colors}
+            name={item.name}
+            category={item.category}
+            images={item.images}
+            sizes={item.sizes}
+            price={item.price * counter}
+            currency={item.currency}
+            colors={item.colors}
           />
         </div>
         <div className={styles.imageBlockWrapper}>
-          <CartImage images={images} />
+          <CartImage images={item.images} count={counter} id={item.name} />
         </div>
       </div>
     );

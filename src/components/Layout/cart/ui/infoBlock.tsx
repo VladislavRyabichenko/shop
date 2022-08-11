@@ -18,7 +18,7 @@ class InfoBlock extends React.Component<InfoBlockProps, any> {
     const { name, category, sizes, price, currency, colors } = this.props;
     return (
       <div className={styles.infoContainer}>
-        <Title text={name} isBold={true} />
+        <Title text={name} isBold={false} />
         <Title text={category} isBold={false} />
         <Title text={price.toString().concat(currency)} isBold={true} />
         <SizesBlock sizes={sizes} />

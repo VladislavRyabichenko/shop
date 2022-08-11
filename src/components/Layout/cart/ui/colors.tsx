@@ -10,7 +10,7 @@ class InfoBlock extends React.Component<ColorsBlockProps, any> {
     const { colors } = this.props;
     return (
       <div className={styles.colors}>
-        <Title text="Colors" isBold={true} />
+        <Title text="Color" isBold={false} />
 
         <div className={styles.colorsContainer}>
           {colors.map((color, idx) => {

@@ -5,7 +5,16 @@
 
   .sliderControls {
     position: absolute;
-    top: 0;
+    top: 85%;
+    left: 60%;
+
+    button {
+      border: none;
+      margin: 1px;
+      background: rgba(0, 0, 0, 0.73);
+      color: white;
+
+    }
   }
 
   img {
