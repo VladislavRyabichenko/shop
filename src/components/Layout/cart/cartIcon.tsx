@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "./styles/cartStyles.module.scss";
+import styles from "./styles/cartItem.module.scss";
+import CartPreview from "./cartPreview";
 
-class Cart extends React.Component<{}, {}> {
+class CartIcon extends React.Component<{}, {}> {
   render() {
     return (
       <div className={styles.cartContainer}>
@@ -11,10 +12,10 @@ class Cart extends React.Component<{}, {}> {
             <span>3</span>
           </div>
         </div>
-        <div className={styles.cart}></div>
+        <CartPreview />
       </div>
     );
   }
 }
 
-export default Cart;
+export default CartIcon;

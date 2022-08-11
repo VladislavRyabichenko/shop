@@ -1,0 +1,21 @@
+.sizes {
+  display: flex;
+  flex-direction: column;
+}
+
+.sizesContainer {
+  display: flex;
+}
+
+.sizeItem {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  background: white;
+  display: flex;
+
+  margin-right: 5px;
+
+  align-items: center;
+  justify-content: center;
+}
