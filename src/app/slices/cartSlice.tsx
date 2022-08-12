@@ -12,24 +12,24 @@ type CartItemType = {
   colors: Array<string>;
 };
 
-type CartItemsArray = {
+type CartSliceArrayItem = {
   item: CartItemType;
   count: number;
 };
 
 export interface CartState {
-  items: Array<CartItemsArray>;
+  items: Array<CartSliceArrayItem>;
   count: number;
   totalPrice: number;
 }
 
-const countFullPrice = (items: Array<CartItemType>): number => {
+const countFullPrice = (items: Array<CartSliceArrayItem>): number => {
   if (items.length < 1) {
     return 0;
   }
   let sum = 0;
-  items.forEach((item) => {
-    sum += item.price;
+  items.forEach((elem) => {
+    sum += elem.item.price * elem.count;
   });
   return sum;
 };
@@ -39,7 +39,7 @@ const initialState: CartState = {
     return { item: elem, count: 1 };
   }),
   count: data.length,
-  totalPrice: countFullPrice(data),
+  totalPrice: 0,
 };
 
 export const cartSlice = createSlice({
@@ -56,6 +56,7 @@ export const cartSlice = createSlice({
       const target = state.items.findIndex(
         (elem) => elem.item.name === action.payload
       );
+      state.totalPrice = countFullPrice(state.items);
       state.items[target].count += 1;
       state.count += 1;
     },
@@ -68,6 +69,7 @@ export const cartSlice = createSlice({
       } else {
         state.items[target].count -= 1;
       }
+      state.totalPrice = countFullPrice(state.items);
       state.count -= 1;
     },
   },

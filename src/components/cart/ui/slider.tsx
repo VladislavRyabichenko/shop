@@ -32,10 +32,12 @@ class Title extends React.Component<SliderProps, SliderState> {
     return (
       <div className={styles.sliderContainer}>
         <img src={images[this.state.count]} alt="" />
-        <div className={styles.sliderControls}>
-          <button onClick={this.handleClickPrev}>{"<"}</button>
-          <button onClick={this.handleClickNext}>{">"}</button>
-        </div>
+        {images.length > 1 && (
+          <div className={styles.sliderControls}>
+            <button onClick={this.handleClickPrev}>{"<"}</button>
+            <button onClick={this.handleClickNext}>{">"}</button>
+          </div>
+        )}
       </div>
     );
   }

@@ -2,17 +2,15 @@ import React from "react";
 import styles from "../styles/cartImage.module.scss";
 import Slider from "../ui/slider";
 import { connect } from "react-redux";
-import {
-  addItem,
-  increment,
-  decrement,
-} from "../../../../app/slices/cartSlice";
+import { addItem, increment, decrement } from "../../../app/slices/cartSlice";
+import classNames from "classnames";
 
 type CartImageProps = {
   images: Array<string>;
   count: number;
   id: string;
   dispatch: Function;
+  size: "sm" | "lg";
 };
 
 const newItem = {
@@ -33,12 +31,16 @@ class CartImage extends React.Component<CartImageProps, any> {
   render() {
     const { images } = this.props;
     const { dispatch } = this.props;
-    const { count, id } = this.props;
+    const { count, id, size } = this.props;
     // this.props.dispatch()
+    const classes = classNames(styles.counter, {
+      [styles.sm]: size === "sm",
+      [styles.lg]: size === "lg",
+    });
 
     return (
       <div className={styles.imagePreviewContainer}>
-        <div className={styles.counter}>
+        <div className={classes}>
           <button
             onClick={() => {
               dispatch(increment(id));

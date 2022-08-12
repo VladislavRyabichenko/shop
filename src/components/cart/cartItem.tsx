@@ -3,27 +3,22 @@ import styles from "./styles/cartItem.module.scss";
 import InfoBlock from "./ui/infoBlock";
 import CartImage from "./cartImage/cartImage";
 
-type CartItemType = {
-  name: string;
-  category: string;
-  images: Array<string>;
-  sizes: Array<string>;
-  price: number;
-  currency: string;
-  colors: Array<string>;
-};
-type cartItemProps = {
-  item: CartItemType;
-  counter: number;
-};
+import { CartItemProps } from "./types/types";
 
-class CartItem extends React.Component<cartItemProps, {}> {
+import classNames from "classnames";
+
+class CartItem extends React.Component<CartItemProps, {}> {
   render() {
-    const { item, counter } = this.props;
+    const { item, counter, size } = this.props;
     console.log("items", item);
 
+    const classes = classNames(styles.cartItemContainer, {
+      [styles.sm]: size === "sm",
+      [styles.lg]: size === "lg",
+    });
+
     return (
-      <div className={styles.cartItemContainer}>
+      <div className={classes}>
         <div className={styles.infoBlockWrapper}>
           <InfoBlock
             name={item.name}
@@ -33,10 +28,16 @@ class CartItem extends React.Component<cartItemProps, {}> {
             price={item.price * counter}
             currency={item.currency}
             colors={item.colors}
+            size={size}
           />
         </div>
         <div className={styles.imageBlockWrapper}>
-          <CartImage images={item.images} count={counter} id={item.name} />
+          <CartImage
+            images={item.images}
+            count={counter}
+            id={item.name}
+            size={size}
+          />
         </div>
       </div>
     );

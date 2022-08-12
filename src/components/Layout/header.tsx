@@ -4,7 +4,7 @@ import Navigation from "./navigation";
 import styles from "./styles/headerStyles.module.scss";
 import Logo from "./logo";
 import CurrencySelect from "./currencySelect";
-import CartIcon from "./cart/cartIcon";
+import CartIcon from "../cart/cartIcon";
 
 class Header extends React.Component<{}, {}> {
   render() {
