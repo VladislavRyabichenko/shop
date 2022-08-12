@@ -1,0 +1,12 @@
+.summaryContainer {
+  //background: blue;
+  display: flex;
+  width: 100%;
+  max-width: 250px;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  .quantityContainer, .taxContainer, .totalContainer {
+    display: flex;
+  }
+}

@@ -1,0 +1,38 @@
+.sizes {
+  display: flex;
+  flex-direction: column;
+}
+
+.sizesContainer {
+  display: flex;
+}
+
+.sizeItem {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  background: white;
+  display: flex;
+
+
+  margin-right: 5px;
+
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  span {
+    font-size: 12px;
+  }
+}
+
+.sm {
+  width: 20px;
+  height: 20px;
+}
+
+.lg {
+  width: 63px;
+  height: 45px;
+}

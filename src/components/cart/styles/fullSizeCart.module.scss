@@ -1,0 +1,28 @@
+
+.titleContainer{
+  //margin-bottom: 80px;
+  margin: 80px 0 55px 0;
+}
+
+.line{
+  width: 100%;
+  border-bottom: 1px solid #E5E5E5;
+  border-radius: 30px;
+  margin: 24px 0;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+
+  button {
+    width: 274px;
+    height: 43px;
+
+    border: none;
+    color: white;
+    background: #5ece7b;
+  }
+}
+
